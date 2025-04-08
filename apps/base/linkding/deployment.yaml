@@ -21,6 +21,8 @@ spec:
           image: sissbruecker/linkding:1.39.0
           ports:
             - containerPort: 9090
+          securityContext: 
+            allowPrivilegeEscalation: false
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
