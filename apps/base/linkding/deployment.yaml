@@ -4,7 +4,7 @@ metadata:
   name: linkding
 spec:
   replicas: 1
-  selector: 
+  selector:
     matchLabels:
       app: linkding
   template:
@@ -12,25 +12,24 @@ spec:
       labels:
         app: linkding
     spec:
-      securityContext: 
+      securityContext:
         fsGroup: 33
         runAsUser: 33
-        runAsGroup: 33  
+        runAsGroup: 33
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.39.0
           envFrom:
-           - secretRef:
-             name: linkding-container-env
+            - secretRef:
+                name: linkding-container-env
           ports:
             - containerPort: 9090
-          securityContext: 
+          securityContext:
             allowPrivilegeEscalation: false
-          volumeMounts: 
+          volumeMounts:
             - name: linkding-data
               mountPath: /etc/linkding/data
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
           claimName: linkding-data-pvc
-
