@@ -15,7 +15,7 @@ spec:
       initContainers:
       - name: init-chmod-data
         image: busybox
-        command: ["sh", "-c", "mkdir -p  /etc/linkding/data && chmod -R 777 /etc/linkding/data"]
+        command: ["sh", "-c", "mkdir -p  /app/linkding/data && chmod -R 777 /app/linkding/data"]
       securityContext:
         fsGroup: 33
         runAsUser: 33
@@ -32,7 +32,7 @@ spec:
             allowPrivilegeEscalation: false
           volumeMounts:
             - name: linkding-data
-              mountPath: /etc/linkding/data
+              mountPath: /app/linkding/data
       volumes:
         - name: linkding-data
           persistentVolumeClaim:
