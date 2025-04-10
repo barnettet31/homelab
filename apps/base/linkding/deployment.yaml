@@ -12,12 +12,6 @@ spec:
       labels:
         app: linkding
     spec:
-      initContainers:
-        - name: install-debug-toolbar
-          image: busybox
-          command: ["pip" ,"install", "django-debug-toolbar"]
-          securityContext:
-            runAsUser: 0
       securityContext:
         fsGroup: 33
         runAsUser: 33
@@ -25,6 +19,9 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.39.0
+          env:
+            - name: DEBUG
+              value: "False"
           envFrom:
             - secretRef:
                 name: linkding-container-env
