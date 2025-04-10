@@ -12,6 +12,10 @@ spec:
       labels:
         app: linkding
     spec:
+      initContainers:
+        - name: install-debug-toolbar
+          image: busybox
+          command: ["pip install django-debug-toolbar"]
       securityContext:
         fsGroup: 33
         runAsUser: 33
