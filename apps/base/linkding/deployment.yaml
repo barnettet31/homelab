@@ -21,6 +21,9 @@ spec:
           echo "Creating data directory structure..."
           mkdir -p /etc/linkding/data
 
+          echo "Setting permissions..."
+          chmod -R 777 /etc/linkding
+
           echo "Setting ownership..."
           chown -R 33:33 etc/linkding/data
 
