@@ -15,7 +15,7 @@ spec:
       initContainers:
       - name: init-chmod-data
         image: busybox
-        command: ["sh", "-c", "mkdir -p  /app/linkding/data && chmod -R 777 /app/linkding/data"]
+        command: ["sh", "-c", "mkdir -p /data/linkding && chmod -R 755 /data && chown -R 33:33 /data"]
       securityContext:
         fsGroup: 33
         runAsUser: 33
