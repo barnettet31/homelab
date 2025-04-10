@@ -39,12 +39,12 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.39.0
-          env:
-            - name: DEBUG
-              value: "False"
           envFrom:
             - secretRef:
                 name: linkding-container-env
+          env:
+            - name: DEBUG
+              value: "False"
           ports:
             - containerPort: 9090
           securityContext:
