@@ -4,7 +4,10 @@ metadata:
   name: nginx-ingress
   labels:
     app.kubernetes.io/name: nginx-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
 spec:
+  ingressClassName: traefik
   rules:
   - host: homelab.barnettetravis.com
     http:
