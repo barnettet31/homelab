@@ -1,17 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
-metadata: 
+metadata:
   name: demo
-  namespace: argocd 
-spec: 
+  namespace: argocd
+spec:
   project: default
-  repoURL: git@github.com:barnettet31/homelab.git
-  path: demo
-  targetRevision: main
-destination: 
-  server: https://kubernetes.default.svc
-  namespace: default
-syncPolicy: 
-  automated: 
-    prune: true
-    selfHeal: true
+  source:
+    repoURL: https://github.com/barnettet31/homelab.git
+    path: demo
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
