@@ -5,7 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: nginx-ingress
   annotations:
-    kubernetes.io/ingress.class: traefik
+    kubernetes.io/ingress.class: traefiki
 spec:
   ingressClassName: traefik
   rules:
