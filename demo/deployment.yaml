@@ -25,8 +25,8 @@ spec:
           - name: DEMO_SECRET
             valueFrom: 
               secretKeyRef:
-                key: key-name
-                name: username
+                key: username
+                name: demo-secret
         volumeMounts: 
           - name: templates
             mountPath: /etc/nginx/templates
